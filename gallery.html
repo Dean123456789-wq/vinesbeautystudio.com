@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gallery of before and after photos from Vine's Beauty Artistry & Care">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Gallery - Vine's Beauty Artistry & Care</title>
+  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .gallery-page-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #f5faf4 0%, #edf7ec 55%, #f8fbf6 100%);
+      border-bottom: 1px solid var(--blush-strong);
+    }
+
+    .gallery-page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      margin-bottom: 10px;
+    }
+
+    .gallery-page-header p {
+      font-size: 1.1rem;
+      color: var(--green-soft);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gallery-page-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .gallery-section {
+      margin-bottom: 80px;
+    }
+
+    .gallery-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--blush-strong);
+    }
+
+    .before-after-pair {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(18, 61, 43, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .before-after-pair:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(18, 61, 43, 0.15);
+    }
+
+    .before-after-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--blush-strong);
+    }
+
+    .before-after-images img,
+    .extra-combi-photo img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    /* Framed look for before/after images */
+    .before-after-images .image-cell {
+      padding: 8px;
+      background: linear-gradient(180deg, #ffffff, #fbfbfb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .before-after-images .image-cell img {
+      border-radius: 12px;
+      border: 4px solid rgba(255,255,255,0.9);
+      box-shadow: 0 10px 30px rgba(8, 40, 25, 0.08);
+      height: 320px; /* slightly smaller than container to reveal the frame */
+      object-fit: cover;
+    }
+
+    /* Nudges for specific thumbnails where the face is higher in the frame */
+    .extra-combi-photo img[src*="66.jpg"] {
+      object-position: center 20%;
+    }
+    /* 100.jpg needs a larger downward nudge to reveal the face */
+    .extra-combi-photo img[src*="100.jpg"] {
+      object-position: center 45%;
+    }
+    /* Adjust 150 and 160 to better center the faces in the thumbnails */
+    .extra-combi-photo img[src*="150.jpg"],
+    .extra-combi-photo img[src*="160.jpg"] {
+      object-position: center 35%;
+    }
+
+    /* Adjust image 1.jpg / 1.jpeg to center the face in both pairs and thumbnails */
+    .before-after-images img[src$="1.jpg"],
+    .before-after-images img[src$="1.jpeg"],
+    .extra-combi-photo img[src$="1.jpg"],
+    .extra-combi-photo img[src$="1.jpeg"] {
+      /* push the visible area downward so the face is centered */
+      object-position: center 55%;
+    }
+ 
+    .image-viewer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+ 
+    .image-viewer-backdrop.active {
+      display: flex;
+    }
+ 
+    .image-viewer-content {
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+    }
+ 
+    .image-viewer-content img {
+      width: auto;
+      max-width: 100%;
+      max-height: 90vh;
+      display: block;
+      object-fit: contain;
+      cursor: zoom-out;
+    }
+ 
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .extra-combi-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+      justify-content: center;
+      justify-items: center;
+      gap: 20px;
+      width: 100%;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .extra-combi-photo {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(18, 61, 43, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 220px;
+      max-width: 220px;
+    }
+
+    .extra-combi-photo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(18, 61, 43, 0.15);
+    }
+
+    .extra-combi-photo img {
+      height: 220px;
+    }
+
+
+    /* Brand mask overlay (no blur) — thumbnails remain sharp */
+    /* Decorative mask centered over images; images themselves are not blurred */
+      /* Thumbnails remain sharp; no branded overlay */
+    
+
+    .image-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      z-index: 1;
+    }
+
+    .image-cell {
+      position: relative;
+    }
+
+    .before-label {
+      top: 10px;
+      left: 10px;
+    }
+
+    .after-label {
+      top: 10px;
+      right: 10px;
+      left: auto;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 12px 24px;
+      background: var(--emerald);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: var(--emerald-dark);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-page-header h1 {
+        font-size: 2rem;
+      }
+
+      .gallery-section-title {
+        font-size: 1.8rem;
+      }
+
+      .before-after-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .before-after-images img {
+        height: 280px;
+      }
+    }
+    
+    /* Gallery notification styles */
+    .gallery-notice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 1100px;
+      margin: 18px auto;
+      background: linear-gradient(90deg,#fffef6, #f7fff9);
+      border: 1px solid rgba(18,61,43,0.09);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(8,40,25,0.04);
+      color: var(--deep-green);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .gallery-notice-inner {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .gallery-notice-copy { color: var(--green-soft); font-weight:400; }
+
+    .gallery-notice-close {
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 6px 8px;
+      cursor: pointer;
+      color: rgba(18,61,43,0.8);
+      border-radius: 8px;
+    }
+
+    .gallery-notice-close:hover { background: rgba(18,61,43,0.04); }
+    
+    .more-photos {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--green-soft);
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: transparent;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-page-header">
+    <h1>Before &amp; After Gallery</h1>
+    <p>Real results from real clients — soft, defined, and natural.</p>
+  </div>
+
+  <!-- Gallery notification: dismissible banner about client count -->
+  <div id="gallery-notice" class="gallery-notice" role="region" aria-live="polite">
+    <div class="gallery-notice-inner">
+      <strong>Over 100 plus clients booked our services</strong>
+      <span class="gallery-notice-copy"> — Thank you for trusting Vine's Beauty Artistry &amp; Care.</span>
+    </div>
+    <button class="gallery-notice-close" aria-label="Dismiss notification">×</button>
+  </div>
+
+  <div class="gallery-page-container">
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <div class="gallery-section">
+      <h2 class="gallery-section-title">COMBI BROWS</h2>
+      <div class="before-after-grid">
+          <!-- before/after pairs will be rendered here by script -->
+      </div>
+        <div class="more-photos">More photos coming soon!</div>
+    </div>
+
+  </div>
+    <script>
+      (function(){
+        const combiFiles = [
+          'Combi Browns/00.jpg','Combi Browns/0.jpg','Combi Browns/1..jpg','Combi Browns/1.jpg',
+          'Combi Browns/2.jpg','Combi Browns/2..jpg','Combi Browns/3 (2).jpg','Combi Browns/3..jpg','Combi Browns/3.jpg',
+          'Combi Browns/4.jpg','Combi Browns/4..jpg','Combi Browns/6.jpg','Combi Browns/6..jpg',
+          'Combi Browns/7.jpg','Combi Browns/7..jpg','Combi Browns/8.jpg','Combi Browns/8..jpg',
+          'Combi Browns/9.jpg','Combi Browns/9..jpg','Combi Browns/10.jpg','Combi Browns/10..jpg',
+          'Combi Browns/11.jpg','Combi Browns/11..jpg','Combi Browns/12.jpg','Combi Browns/12..jpg',
+          'Combi Browns/15.jpg','Combi Browns/15..jpg','Combi Browns/20.jpg','Combi Browns/20..jpg',
+          'Combi Browns/21.jpg','Combi Browns/21..jpg','Combi Browns/518345568_10165563609278146_7660537827251825260_n.jpg'
+        ];
+
+        const grid = document.querySelector('.before-after-grid');
+        if (!grid) return;
+
+        // Build groups keyed by the first numeric sequence (or filename base)
+        const groups = combiFiles.reduce((acc, path) => {
+          const name = path.split('/').pop();
+          const digits = (name.match(/\d+/) || [])[0];
+          // normalize numeric keys to strip leading zeros so 00 and 0 group together
+          const key = digits ? String(Number(digits)) : name.replace(/\.[^.]+$/, '');
+          (acc[key] = acc[key] || []).push(path);
+          return acc;
+        }, {});
+
+        // Produce deterministic pairs: prefer two distinct files per group.
+        let pairs = [];
+        Object.keys(groups).sort((a,b)=>Number(a) - Number(b)).forEach((k) => {
+          // preserve original order but keep unique filenames
+          const unique = Array.from(new Set(groups[k]));
+          if (unique.length === 1) pairs.push([unique[0], unique[0]]);
+          else pairs.push([unique[0], unique[1]]);
+        });
+
+        // Ensure exactly 15 pairs (15 before + 15 after):
+        const TARGET = 15;
+        // If we have too many, trim extras from the end
+        if (pairs.length > TARGET) pairs = pairs.slice(0, TARGET);
+
+        // If we have too few, add singleton pairs from remaining unique files
+        if (pairs.length < TARGET) {
+          const used = new Set(pairs.flat());
+          const allUnique = Array.from(new Set(combiFiles));
+          for (let i = 0; i < allUnique.length && pairs.length < TARGET; i++) {
+            const f = allUnique[i];
+            if (!used.has(f)) {
+              pairs.push([f, f]);
+              used.add(f);
+            }
+          }
+        }
+
+        // Clear existing grid and render the target pairs freshly
+        grid.innerHTML = '';
+        pairs.forEach((pair, i) => {
+          const before = pair[0];
+          const after = pair[1];
+          const pairDiv = document.createElement('div');
+          pairDiv.className = 'before-after-pair';
+          pairDiv.innerHTML = `
+            <div class="before-after-images">
+              <div class="image-cell">
+                <img src="${encodeURI(before)}" alt="Combi brows result ${i+1} - before">
+              </div>
+              <div class="image-cell">
+                <img src="${encodeURI(after)}" alt="Combi brows result ${i+1} - after">
+              </div>
+            </div>`;
+          grid.appendChild(pairDiv);
+        });
+  
+        const additionalCombiPhotos = [
+          'Combi Browns/33.jpg',
+          'Combi Browns/44.jpg',
+          'Combi Browns/55.jpg',
+          'Combi Browns/66.jpg',
+          'Combi Browns/77.jpg',
+          'Combi Browns/99.jpg',
+          'Combi Browns/100.jpg',
+          'Combi Browns/110.jpg',
+          'Combi Browns/120.jpg',
+          'Combi Browns/130.jpg',
+          'Combi Browns/140.jpg',
+          'Combi Browns/150.jpg',
+          'Combi Browns/160.jpg',
+          'Combi Browns/170.jpg',
+          'Combi Browns/180.jpg'
+        ];
+
+        const extraRow = document.createElement('div');
+        extraRow.className = 'extra-combi-row';
+
+        additionalCombiPhotos.forEach((src) => {
+          const item = document.createElement('div');
+          item.className = 'extra-combi-photo';
+          item.innerHTML = `<img src="${encodeURI(src)}" alt="Combi brows photo">`;
+          extraRow.appendChild(item);
+        });
+
+        grid.appendChild(extraRow);
+ 
+        const viewerBackdrop = document.createElement('div');
+        viewerBackdrop.className = 'image-viewer-backdrop';
+        viewerBackdrop.innerHTML = `
+          <div class="image-viewer-content">
+            <img src="" alt="Expanded gallery photo">
+          </div>
+        `;
+        document.body.appendChild(viewerBackdrop);
+ 
+        const viewerImage = viewerBackdrop.querySelector('img');
+        const openViewer = (src, alt) => {
+          if (!viewerBackdrop || !viewerImage) return;
+          viewerImage.src = src;
+          viewerImage.alt = alt || 'Gallery photo';
+          viewerBackdrop.classList.add('active');
+          document.body.classList.add('modal-open');
+        };
+ 
+        const closeViewer = () => {
+          if (!viewerBackdrop || !viewerImage) return;
+          viewerBackdrop.classList.remove('active');
+          document.body.classList.remove('modal-open');
+          viewerImage.src = '';
+        };
+ 
+        grid.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLElement)) return;
+          const image = target.closest('.before-after-images img, .extra-combi-photo img');
+          if (!image) return;
+          openViewer(image.getAttribute('src') || '', image.getAttribute('alt') || 'Gallery photo');
+        });
+ 
+        viewerBackdrop.addEventListener('click', (event) => {
+          if (event.target === viewerBackdrop) {
+            closeViewer();
+          }
+        });
+ 
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeViewer();
+          }
+        });
+ 
+        // If the final appended pair contains the same image for before+after,
+        // remove that final pair to avoid showing a duplicate picture.
+        (function removeTrailingDuplicatePair(){
+          const lastPair = grid.querySelector('.before-after-pair:last-child');
+          if (!lastPair) return;
+          const imgs = lastPair.querySelectorAll('img');
+          if (imgs.length === 2) {
+            try {
+              const src0 = imgs[0].getAttribute('src');
+              const src1 = imgs[1].getAttribute('src');
+              if (src0 && src1 && src0 === src1) {
+                lastPair.remove();
+              }
+            } catch (e) {
+              // swallow any unexpected errors; removal is non-critical
+            }
+          }
+        })();
+
+        // Gallery notice: dismiss & persist in sessionStorage so users aren't repeatedly shown
+        (function galleryNotice(){
+          try {
+            const notice = document.getElementById('gallery-notice');
+            if (!notice) return;
+            const closeBtn = notice.querySelector('.gallery-notice-close');
+            const storageKey = 'galleryNoticeDismissed_v1';
+            const dismissed = sessionStorage.getItem(storageKey);
+            if (dismissed) {
+              notice.style.display = 'none';
+            }
+            if (closeBtn) {
+              closeBtn.addEventListener('click', () => {
+                try { sessionStorage.setItem(storageKey, '1'); } catch (e) {}
+                notice.style.display = 'none';
+              });
+            }
+          } catch (e) {
+            // non-fatal
+          }
+        })();
+      })();
+    </script>
+</body>
+</html>

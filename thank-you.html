@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Vine's Beauty Artistry & Care</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="top">
+    <nav class="nav container">
+      <a href="index.html#top" class="logo" id="site-logo">
+        <span>Vine's Beauty Artistry & Care</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="gallery.html" target="_blank">Gallery</a></li>
+        <li><a href="index.html#contact">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero thank-you-hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content tilt-surface">
+        <p class="eyebrow">Booking confirmed</p>
+        <h1 class="hero-title">Thank you</h1>
+        <p class="hero-text">Your appointment request was received successfully. Our artist will review your details and confirm or reschedule if the requested slot is unavailable.</p>
+        <div class="hero-actions">
+          <a href="index.html" id="return-home" class="btn btn-primary">Return to home</a>
+          <a href="gallery.html" class="btn btn-outline">Browse the gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section thank-you-features">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">What’s next</p>
+          <h2>While you wait</h2>
+          <p class="section-desc">Explore our most loved services and care tips so you feel ready for your visit.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Combi Brows</h3>
+            <p>Soft tattoo strokes plus powder shading for natural definition that lasts.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Eyebrow Lamination</h3>
+            <p>Brings brow hairs into place for a fuller, polished look with low upkeep.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Aftercare tips</h3>
+            <p>Keep your brows fresh longer with gentle cleansing, hydration, and sunscreen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Return-to-home helper:
+    // If this thank-you page was opened in a new tab/window and has an opener,
+    // update the opener to the home page and then close this tab so the user
+    // returns to the original tab. Otherwise navigate in-place.
+    (function(){
+      const btn = document.getElementById('return-home');
+      if (!btn) return;
+      btn.addEventListener('click', function(evt){
+        // Prefer to update opener and close if possible so the user returns to the original tab
+        evt.preventDefault();
+        const home = 'index.html';
+        try {
+          if (window.opener && !window.opener.closed) {
+            // Navigate the opener and close this tab
+            window.opener.location.href = home;
+            // Some browsers only allow window.close() on windows opened by script; still attempt it
+            window.close();
+            // If close() was blocked, still navigate here as fallback
+            setTimeout(() => { if (!window.closed) window.location.href = home; }, 200);
+            return;
+          }
+        } catch (e) {
+          // Ignore cross-origin or other errors and fall back to same-tab navigation
+          console.warn('Return-home opener navigation failed:', e);
+        }
+        // No opener — navigate in the current tab
+        window.location.href = home;
+      });
+    })();
+  </script>
+</body>
+</html>

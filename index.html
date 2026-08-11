@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vine's Beauty Artistry & Care — expert eyebrow shaping, lamination, and tinting in a calm, beautiful space.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google.com https://formspree.io https://api.formspree.io; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto: https://formspree.io; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="permissions-policy" content="geolocation=(), microphone=(), camera=()">
+  <title>Vine's Beauty Artistry & Care</title>
+  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Styles consolidated in styles.css — moved inline styles to styles.css to match the inspected site's design and features. -->
+
+</head>
+<body>
+  <header class="header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="logo" id="site-logo">
+       
+        <span>Vine's Beauty Artistry & Care</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="gallery.html" target="_blank">Gallery</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="logo-preview-modal" id="logo-preview-modal" aria-hidden="true">
+    <div class="logo-preview-backdrop"></div>
+    <div class="logo-preview-panel" role="dialog" aria-modal="true">
+      <button class="close-logo-preview" id="close-logo-preview" aria-label="Close logo preview">×</button>
+      <img src="logo/vines beauty.png" alt="Vine's logo enlarged preview" class="logo-preview-img" onerror="this.onerror=null; this.src='logo/vines-logo-fallback.svg';">
+    </div>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content tilt-surface">
+        <p class="eyebrow">Beauty styling &amp; shaping</p>
+        <h1 class="hero-title"><span class="hero-left">Pure&nbsp;beauty,</span><br><span class="hero-right">naturally you</span></h1>
+        <p class="hero-text">Welcome to Vine's beauty artistry & care — where precision meets softness. Custom shaping, combi brows, microblading, powder brows, machine nano hairstrokes and ombre brows.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary booking-trigger hero-btn-left"><span class="btn-icon">📅</span>Book an appointment</a>
+          <a href="#services" class="btn btn-outline hero-btn-right"><span class="btn-icon">✨</span>View services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="container">
+
+        <!-- Eyebrow helper: clickable waving character on the left of the Services area -->
+        <div class="eyebrow-helper" role="button" tabindex="0" aria-label="Click me first" title="Click me first">
+          <!-- Stylized person SVG with subtle details: eyes, eyebrow, soft bg ring -->
+          <svg class="eyebrow-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+            <defs>
+              <linearGradient id="g-emerald" x1="0" x2="1">
+                <stop offset="0%" stop-color="#2f8b59" />
+                <stop offset="100%" stop-color="#4fb06f" />
+              </linearGradient>
+            </defs>
+            <!-- soft background ring for an elevated look -->
+
+            <!-- head & face group (keeps original placement) -->
+            <g class="helper-figure" transform="translate(0,0)">
+              <!-- head -->
+              <circle cx="20" cy="12" r="6" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.4"/>
+
+              <!-- eyes (will blink) -->
+              <g class="face-eyes" fill="#123d2b">
+                <ellipse class="eye" cx="17" cy="12" rx="1.1" ry="1.1" />
+                <ellipse class="eye" cx="23" cy="12" rx="1.1" ry="1.1" />
+              </g>
+
+              <!-- eyebrow (stylized) -->
+              <path class="brow" d="M15 9 C17 6.5, 23 6.5, 25 9" stroke="#123d2b" stroke-width="1.6" stroke-linecap="round" fill="none" />
+
+              <!-- body -->
+              <rect x="14" y="20" width="12" height="18" rx="3" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.4"/>
+
+              <!-- left arm (static) -->
+              <rect x="4" y="24" width="8" height="3" rx="1.5" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.1"/>
+
+              <!-- right arm (waving) -->
+              <g class="wave-arm">
+                <rect x="26" y="20" width="10" height="3" rx="1.5" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.1"/>
+                <circle cx="36" cy="21" r="2" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.1"/>
+              </g>
+
+              <!-- legs -->
+              <rect class="leg leg-left" x="16" y="38" width="4" height="10" rx="2" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.1"/>
+              <rect class="leg leg-right" x="22" y="38" width="4" height="10" rx="2" fill="#fff" stroke="url(#g-emerald)" stroke-width="1.1"/>
+            </g>
+          </svg>
+
+          <!-- Visible callout so users see the instruction immediately -->
+          <span class="helper-callout" aria-hidden="true">Click me first!</span>
+
+          <div class="helper-panel" role="dialog" aria-hidden="true">
+            <p class="helper-text">If you want to avail a paused service, kindly direct message below.</p>
+            <div class="helper-actions">
+              <a href="#contact" class="btn btn-outline helper-btn">Message us</a>
+              <button class="helper-close" aria-label="Close helper">Close</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <p class="eyebrow">What we offer</p>
+          <h2>Our services</h2>
+          <p class="section-desc">Every treatment is customized to enhance your natural beauty.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card training-card combi-card featured tilt-surface" data-service="COMBI BROWS" role="button" tabindex="0" aria-label="Show combi brows service features">
+            <div class="combi-image-wrapper" aria-hidden="true">
+              <img src="combi2.png" alt="Combi brows" />
+            </div>
+            <div class="training-overlay"></div>
+            <div class="training-content">
+              <div class="service-badge">Popular</div>
+              <div class="service-icon">✦</div>
+              <h3>COMBI BROWS</h3>
+             
+              <span class="price training-price">₱1499 only</span>
+            </div>
+          </article>
+          <article class="service-card image-card unavailable tilt-surface" data-service="MICROBLADING" role="button" tabindex="0" aria-disabled="true" aria-label="Microblading currently unavailable">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <div class="service-badge unavailable-badge">Service is Paused</div>
+              <div class="service-icon">✦</div>
+              <h3>MICROBLADING</h3>
+              <p>A semi-permanent cosmetic tattoo technique that uses a tiny hand tool with micro-needles .</p>
+              <span class="price">₱1499 only</span>
+            </div>
+          </article>
+          <article class="service-card image-card unavailable tilt-surface" data-service="POWDER BROWS" role="button" tabindex="0" aria-disabled="true" aria-label="Powder brows currently unavailable">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <div class="service-badge unavailable-badge">Service is Paused</div>
+              <div class="service-icon">✦</div>
+              <h3>POWDER BROWS</h3>
+              <p>A semi-permanent cosmetic tattoo technique creating a soft and shaded, makeup-like brow They last 1 to 3 years.</p>
+              <span class="price">₱1499 only</span>
+            </div>
+          </article>
+          <article class="service-card image-card unavailable tilt-surface" data-service="MACHINE NANO HAIRSTROKES" role="button" tabindex="0" aria-disabled="true" aria-label="Machine nano hairstrokes currently unavailable">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <div class="service-badge unavailable-badge">Service is Paused</div>
+              <div class="service-icon">✦</div>
+              <h3>MACHINE NANO HAIRSTROKES</h3>
+              <p>It uses a digital PMU machine and an ultra-fine single needle .</p>
+              <span class="price">₱1499 only</span>
+            </div>
+          </article>
+          <article class="service-card image-card ombre-card unavailable tilt-surface" data-service="OMBRE BROWS" role="button" tabindex="0" aria-disabled="true" aria-label="Ombre brows currently unavailable">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <div class="service-badge unavailable-badge">Service is Paused</div>
+              <div class="service-icon">✦</div>
+              <h3>OMBRE BROWS</h3>
+              <p>A semi-permanent cosmetic tattoo technique creating a soft powder gradient, starting light at the front and darkening toward the tail.</p>
+              <span class="price">₱1499 only</span>
+            </div>
+          </article>
+          <article class="service-card training-card training-link tilt-surface" data-training-card="brow-tattooing" role="button" tabindex="0" aria-label="Learn more about Brow Tattooing Training" style="background-image: url('studio1.png');">
+            <div class="training-overlay"></div>
+            <div class="training-content">
+              <div class="service-icon">✦</div>
+              <h3 class="training-title"><span class="title-main">Brow tattooing</span><span class="title-sub">Training</span></h3>
+             
+              <span class="price training-price">₱9999 for 5D Training</span>
+            </div>
+          </article>
+          <article class="service-card image-card home-service-card tilt-surface" data-service="HOME SERVICE" role="button" tabindex="0" aria-label="Show home service features" style="background-image: url('home12.png');">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <h3>Home Service</h3>
+              <span class="price">₱2500 only</span>
+            </div>
+          </article>
+          <article class="service-card image-card combo-package-card tilt-surface" data-service="COMBO PACKAGE" role="button" tabindex="0" aria-label="Show combo package service features" style="background-image: url('combo3.png'); background-position: center 28%;">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <h3>Combo package</h3>
+              <p>Bring 1 extra customer</p>
+              <span class="price">₱1999 only</span>
+            </div>
+          </article>
+        </div>
+        <div class="service-details-panel" id="service-details-panel" aria-live="polite">
+          <div class="service-details-header">
+            <p class="eyebrow">Selected service above</p>
+            <h3 id="service-details-title">Select a service for feature highlights</h3>
+            <p class="service-details-copy" id="service-details-copy">Click any service card above to reveal its main benefits. The details will appear.</p>
+          </div>
+          <ul class="service-feature-list" id="service-features-list" aria-label="Service highlights"></ul>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-frame tilt-surface">
+            <div class="about-slider" aria-roledescription="carousel" aria-label="Eyebrow highlights slideshow">
+              <div class="about-slide" style="background-image: url('IMG_2808111.jpeg');" role="group" aria-roledescription="slide" aria-label="Soft natural brow shading highlight">
+                <div class="slide-caption">Safe and Hygienic Environment with premium products.</div>
+              </div>
+              <div class="about-slide" style="background-image: url('high.jpg');" role="group" aria-roledescription="slide" aria-label="Full brow restoration and shimmer">
+                <div class="slide-caption">Personalized consultation every visit and Free Consultation.</div>
+              </div>
+              <div class="about-slide" style="background-image: url('train.jpg');" role="group" aria-roledescription="slide" aria-label="Delicate hair strokes and sculpted arch">
+                <div class="slide-caption">Delicate hair strokes and sculpted arch for everyday elegance.</div>
+              </div>
+              <div class="about-slide active" style="background-image: url('Combi%20Browns/IMG_2798.jpeg');" role="group" aria-roledescription="slide" aria-label="Defined brows with subtle glow">
+                <div class="slide-caption">Eyebrow tattoo healing process 4 to 8 weeks</div>
+              </div>
+              <div class="about-slide" style="background-image: url('cert..jpg');" role="group" aria-roledescription="slide" aria-label="Elegant brow shape and soft highlight">
+                <div class="slide-caption">Certified and Trained Technician and Experienced brow artist.</div>
+              </div>
+              <button class="slide-nav prev" type="button" aria-label="Show previous highlight">‹</button>
+              <button class="slide-nav next" type="button" aria-label="Show next highlight">›</button>
+              <div class="slider-controls" role="tablist" aria-label="Slide selection">
+                <button class="slide-dot" type="button" aria-label="Show slide 1"></button>
+                <button class="slide-dot" type="button" aria-label="Show slide 2"></button>
+                <button class="slide-dot" type="button" aria-label="Show slide 3"></button>
+                <button class="slide-dot active" type="button" aria-label="Show slide 4"></button>
+                <button class="slide-dot" type="button" aria-label="Show slide 5"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="eyebrow">About the Artist and studio</p>
+          <h2>A calm space for beautiful brows</h2>
+          <p>At Vine's Beauty Studio, we believe great brows should look effortless — never overdone. Vine specializes in soft, face-flattering shapes that work with your features, not against them.</p>
+          <p>Whether it's your first visit or your monthly refresh, you'll leave feeling polished, confident, and completely yourself.</p>
+          <ul class="about-list">
+            <li>Brow Reconstruction</li>
+            <li>Certified and Trained Technician</li>
+            <li>Color correction</li>
+            <li>Experienced brow artist</li>
+            <li>Free Consultation</li>
+            <li>Personalized consultation every visit</li>
+            <li>Premium, gentle products</li>
+            <li>Safe and Hygienic Environment</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="contact section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Book your visit</h2>
+          <p>Ready for your best brows? Request your preferred appointment time or direct message below.</p>
+          <div class="contact-details">
+            <div class="detail">
+              <strong>Hours</strong>
+              <span>Monday – Sunday, 8am – 7pm</span>
+            </div>
+            <div class="detail">
+              <strong>Phone</strong>
+              <a href="tel:+639165035223">09165035223</a>
+            </div>
+            <div class="detail">
+              <strong>Messenger</strong>
+              <span>Vine C. Parel</span>
+            </div>
+            <div class="detail">
+              <strong>Facebook</strong>
+              <a href="https://www.facebook.com/kelly.canoy.9" target="_blank" rel="noopener noreferrer">https://www.facebook.com/kelly.canoy.9</a>
+            </div>
+
+            <div class="detail">
+              <strong>Email</strong>
+              <a href="mailto:vinacanoy@gmail.com" target="_blank" rel="noopener noreferrer">vinacanoy@gmail.com</a>
+            </div>
+            <div class="detail">
+              <strong>Location</strong>
+              <span>46 Palawan Street, Quezon City, Metro Manila</span>
+              <div class="map-container" aria-hidden="false">
+                <iframe
+                  src="https://www.google.com/maps?q=46%20Palawan%20Street%2C%20Quezon%20City%2C%20Metro%20Manila&output=embed"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate action="https://formspree.io/f/xgogjvwv" data-endpoint="https://formspree.io/f/xgogjvwv" method="POST">
+          <!-- Booking requests are sent through Formspree and delivered to the artist email. -->
+          <input type="hidden" name="_replyto" id="_replyto">
+          <input type="hidden" name="_subject" id="_subject" value="">
+          <label>
+            Name
+            <input type="text" id="user_name" name="name" placeholder="Your name" required minlength="2" maxlength="80" autocomplete="name">
+          </label>
+          <label>
+            Email
+            <input type="email" id="user_email" name="email" placeholder="you@email.com" required maxlength="120" autocomplete="email" inputmode="email">
+          </label>
+          <label>
+            Service
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>BROW TATTOOING TRAINING</option>
+              <option>COMBI BROWS</option>
+              <option>MACHINE NANO HAIRSTROKES</option>
+              <option>MICROBLADING</option>
+              <option>OMBRE BROWS</option>
+              <option>POWDER BROWS</option>
+              <option>HOME SERVICE</option>
+              <option>COMBO PACKAGE</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>
+            Preferred date
+            <input type="date" id="preferred_date" name="preferred_date" required>
+          </label>
+          <label>
+            Preferred time
+            <input type="time" id="preferred_time" name="preferred_time" required>
+          </label>
+          <label>
+            Message
+            <textarea id="message" name="message" rows="4" placeholder="Questions, preferences, etc." maxlength="1000"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary btn-full" id="booking-submit">Send request</button>
+          <p class="form-hint">We'll send you a confirmation and the artist will reach out to confirm your appointment.</p>
+          <p class="form-note" id="form-note" hidden>✓ Thank you! We'll be in touch soon.</p>
+          <p class="form-confirmation">The artist will review your request and confirm or reschedule the appointment if the requested slot is already taken.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="training-modal" id="training-modal" aria-hidden="true">
+    <div class="training-modal-backdrop"></div>
+    <div class="training-modal-content" role="dialog" aria-modal="true" aria-labelledby="training-title">
+      <button class="modal-close" id="training-modal-close" aria-label="Close training details">×</button>
+      <h3 id="training-title">Transform Your Skills with Brow Tattooing Training</h3>
+      <p class="training-modal-text">Are you ready to tap into the booming beauty industry? Brow tattooing is a high-demand skill that's perfect for makeup artists and estheticians looking to enhance natural beauty.</p>
+      <p class="training-modal-text">Lucrative Career: Earn a great income as a certified SPMU artist</p>
+      <p class="training-modal-text">Creative Expression: Help clients boost their confidence with perfect brows</p>
+      <p class="training-modal-text">Flexibility: Work on your own schedule, be your own boss!</p>
+      <p class="training-modal-text">Growing Demand: Join a thriving industry with endless opportunities</p>
+      <p class="training-modal-text training-modal-tagline">Get Trained. Get Certified. Get Ahead!</p>
+      <div class="training-modal-actions">
+        <a href="#contact" class="btn btn-primary booking-trigger">Book training</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-overlay" id="booking-overlay" aria-hidden="true">
+    <div class="booking-sheen"></div>
+    <div class="booking-figure" aria-hidden="true">
+      <div class="booking-figure-head"></div>
+      <div class="booking-figure-body"></div>
+      <div class="booking-figure-arm left"></div>
+      <div class="booking-figure-arm right"></div>
+      <div class="booking-figure-leg left"></div>
+      <div class="booking-figure-leg right"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <p class="footer-copy">&copy; 2023 Vine's Beauty Artistry & Care. All rights reserved.</p>
+    </div>
+  </footer>
+ 
+  <script src="script.js"></script>
+  <!-- Lightbox modal for single-image viewing -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content" role="dialog" aria-modal="true">
+      <button class="lightbox-close" aria-label="Close">×</button>
+      <button class="lightbox-prev" aria-label="Previous image">‹</button>
+      <div class="lightbox-figure">
+        <img src="" alt="" class="lightbox-img">
+        <p class="lightbox-caption"></p>
+      </div>
+      <button class="lightbox-next" aria-label="Next image">›</button>
+    </div>
+  </div>
+  
+  <script>
+    // Auto-hide header: hide after inactivity, show on mouse/touch movement or focus
+    (function(){
+      const header = document.querySelector('.header');
+      if(!header) return;
+      header.classList.add('auto-hide');
+
+      let hideTimer = null;
+      const idleDelay = 2000; // ms before hiding
+      const smallMoveThreshold = 8; // px — ignore tiny jitter
+      let lastPos = { x: null, y: null };
+
+      function clearHideTimer(){ if(hideTimer) { clearTimeout(hideTimer); hideTimer = null; } }
+      function scheduleHide(delay = idleDelay){ clearHideTimer(); hideTimer = setTimeout(() => {
+        header.classList.add('hidden');
+        header.setAttribute('aria-hidden','true');
+      }, delay); }
+
+      function showHeader(){
+        header.classList.remove('hidden');
+        header.setAttribute('aria-hidden','false');
+        scheduleHide();
+      }
+
+      function handlePointerMove(e){
+        let x, y;
+        if(e.touches && e.touches[0]){ x = e.touches[0].clientX; y = e.touches[0].clientY; }
+        else { x = e.clientX; y = e.clientY; }
+        if(lastPos.x === null || Math.hypot(x - lastPos.x, y - lastPos.y) > smallMoveThreshold){
+          lastPos = { x, y };
+          showHeader();
+        }
+      }
+
+      // Show header when user focuses any control inside it (keyboard navigation)
+      document.addEventListener('focusin', (evt)=>{ if(header.contains(evt.target)) showHeader(); });
+
+      // Show on meaningful pointer movement or touch
+      document.addEventListener('mousemove', handlePointerMove, { passive: true });
+      document.addEventListener('touchstart', handlePointerMove, { passive: true });
+      document.addEventListener('touchmove', handlePointerMove, { passive: true });
+
+      // Also show when user scrolls or moves the cursor near the top edge
+      document.addEventListener('wheel', showHeader, { passive: true });
+      document.addEventListener('mouseenter', (e) => { if(e.clientY < 80) showHeader(); });
+
+      // When user leaves the header area, re-arm a quicker hide
+      header.addEventListener('mouseleave', () => scheduleHide(900));
+
+      // Start auto-hide shortly after load
+      scheduleHide(1200);
+
+      // Make header focusable for accessibility if needed
+      if(!header.hasAttribute('tabindex')) header.setAttribute('tabindex', '-1');
+    })();
+  </script>
+  <script>
+    // About section slideshow for eyebrow highlights
+    (function(){
+      const slider = document.querySelector('.about-slider');
+      if(!slider) return;
+      const slides = Array.from(slider.querySelectorAll('.about-slide'));
+      const dots = Array.from(slider.querySelectorAll('.slide-dot'));
+      let currentIndex = 0;
+      let autoTimer = null;
+      const slideDurations = [3000, 3000, 3000, 3000, 3000];
+ 
+      function setActiveSlide(index){
+        if(index < 0 || index >= slides.length) return;
+        slides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === index;
+          slide.classList.toggle('active', isActive);
+          slide.setAttribute('aria-hidden', String(!isActive));
+        });
+        dots.forEach((dot, dotIndex) => {
+          const isActive = dotIndex === index;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', String(isActive));
+        });
+        currentIndex = index;
+      }
+
+      function nextSlide(){
+        setActiveSlide((currentIndex + 1) % slides.length);
+      }
+ 
+      function startAutoCycle(){
+        stopAutoCycle();
+        autoTimer = setTimeout(() => {
+          nextSlide();
+          startAutoCycle();
+        }, slideDurations[currentIndex] || 3000);
+      }
+
+      function stopAutoCycle(){
+        if(autoTimer){
+          clearTimeout(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          setActiveSlide(index);
+          startAutoCycle();
+        });
+      });
+
+      const prevBtn = slider.querySelector('.slide-nav.prev');
+      const nextBtn = slider.querySelector('.slide-nav.next');
+
+      if(prevBtn){
+        prevBtn.addEventListener('click', () => {
+          setActiveSlide((currentIndex - 1 + slides.length) % slides.length);
+          startAutoCycle();
+        });
+      }
+      if(nextBtn){
+        nextBtn.addEventListener('click', () => {
+          setActiveSlide((currentIndex + 1) % slides.length);
+          startAutoCycle();
+        });
+      }
+
+      slider.addEventListener('mouseenter', stopAutoCycle);
+      slider.addEventListener('mouseleave', startAutoCycle);
+      slider.addEventListener('focusin', stopAutoCycle);
+      slider.addEventListener('focusout', startAutoCycle);
+
+      setActiveSlide(3);
+      startAutoCycle();
+    })();
+  </script>
+  <script>
+    // Gentle 3D motion for the beauty experience: invite the eye to glide along the page.
+    (function(){
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const surfaces = Array.from(document.querySelectorAll('.tilt-surface'));
+      if(!surfaces.length || reducedMotion){
+        surfaces.forEach(surface => {
+          surface.style.setProperty('--tilt-x', '0deg');
+          surface.style.setProperty('--tilt-y', '0deg');
+          surface.style.setProperty('--scroll-depth', '0px');
+          surface.style.setProperty('--scroll-tilt', '0deg');
+          surface.style.setProperty('--hover-lift', '0px');
+          surface.style.setProperty('--hover-scale', '1');
+          surface.style.setProperty('--glow-x', '50%');
+          surface.style.setProperty('--glow-y', '50%');
+          surface.style.setProperty('--glow-alpha', '0.2');
+        });
+        return;
+      }
+
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+      function updateSurface(surface){
+        const rect = surface.getBoundingClientRect();
+        const centerY = rect.top + (rect.height / 2);
+        const viewportCenter = window.innerHeight / 2;
+        const distance = (viewportCenter - centerY) / viewportCenter;
+        const scrollDepth = clamp(distance * -12, -12, 12);
+        const scrollTilt = clamp(distance * 6, -8, 8);
+        surface.style.setProperty('--scroll-depth', `${scrollDepth.toFixed(2)}px`);
+        surface.style.setProperty('--scroll-tilt', `${scrollTilt.toFixed(2)}deg`);
+      }
+
+      function resetSurface(surface){
+        surface.style.setProperty('--tilt-x', '0deg');
+        surface.style.setProperty('--tilt-y', '0deg');
+        surface.style.setProperty('--glow-x', '50%');
+        surface.style.setProperty('--glow-y', '50%');
+        surface.style.setProperty('--glow-alpha', '0.2');
+      }
+
+      surfaces.forEach(surface => {
+        surface.addEventListener('pointermove', (event) => {
+          const rect = surface.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+          const rotateY = ((x / rect.width) - 0.5) * 12;
+          const rotateX = (((y / rect.height) - 0.5) * -12);
+          const glowX = `${(x / rect.width) * 100}%`;
+          const glowY = `${(y / rect.height) * 100}%`;
+          const glowAlpha = clamp(0.24 + Math.abs(rotateX) * 0.01 + Math.abs(rotateY) * 0.008, 0.24, 0.42);
+          surface.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+          surface.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+          surface.style.setProperty('--glow-x', glowX);
+          surface.style.setProperty('--glow-y', glowY);
+          surface.style.setProperty('--glow-alpha', glowAlpha.toFixed(2));
+        });
+
+        surface.addEventListener('pointerleave', () => resetSurface(surface));
+        surface.addEventListener('pointercancel', () => resetSurface(surface));
+      });
+
+      const updateScene = () => surfaces.forEach(updateSurface);
+      window.addEventListener('scroll', updateScene, { passive: true });
+      window.addEventListener('resize', updateScene);
+      updateScene();
+    })();
+  </script>
+  <script>
+    (function(){
+      const hero = document.querySelector('.hero');
+      if(!hero) return;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) {
+        hero.classList.add('animate');
+        return;
+      }
+      // Wait for load so fonts and layout settle, then animate
+      window.addEventListener('load', () => {
+        setTimeout(() => hero.classList.add('animate'), 260);
+      });
+    })();
+  </script>
+</body>
+</html>
