@@ -350,14 +350,14 @@
     <script>
       (function(){
         const combiFiles = [
-          'Combi Browns/00.jpg','Combi Browns/0.jpg','Combi Browns/1..jpg','Combi Browns/1.jpg',
-          'Combi Browns/2.jpg','Combi Browns/2..jpg','Combi Browns/3 (2).jpg','Combi Browns/3..jpg','Combi Browns/3.jpg',
-          'Combi Browns/4.jpg','Combi Browns/4..jpg','Combi Browns/6.jpg','Combi Browns/6..jpg',
-          'Combi Browns/7.jpg','Combi Browns/7..jpg','Combi Browns/8.jpg','Combi Browns/8..jpg',
-          'Combi Browns/9.jpg','Combi Browns/9..jpg','Combi Browns/10.jpg','Combi Browns/10..jpg',
-          'Combi Browns/11.jpg','Combi Browns/11..jpg','Combi Browns/12.jpg','Combi Browns/12..jpg',
-          'Combi Browns/15.jpg','Combi Browns/15..jpg','Combi Browns/20.jpg','Combi Browns/20..jpg',
-          'Combi Browns/21.jpg','Combi Browns/21..jpg','Combi Browns/518345568_10165563609278146_7660537827251825260_n.jpg'
+          'Combi-Browns/00.jpg','Combi-Browns/0.jpg','Combi-Browns/1..jpg','Combi-Browns/1.jpg',
+          'Combi-Browns/2.jpg','Combi-Browns/2..jpg','Combi-Browns/3 (2).jpg','Combi-Browns/3..jpg','Combi-Browns/3.jpg',
+          'Combi-Browns/4.jpg','Combi-Browns/4..jpg','Combi-Browns/6.jpg','Combi-Browns/6..jpg',
+          'Combi-Browns/7.jpg','Combi-Browns/7..jpg','Combi-Browns/8.jpg','Combi-Browns/8..jpg',
+          'Combi-Browns/9.jpg','Combi-Browns/9..jpg','Combi-Browns/10.jpg','Combi-Browns/10..jpg',
+          'Combi-Browns/11.jpg','Combi-Browns/11..jpg','Combi-Browns/12.jpg','Combi-Browns/12..jpg',
+          'Combi-Browns/15.jpg','Combi-Browns/15..jpg','Combi-Browns/20.jpg','Combi-Browns/20..jpg',
+          'Combi-Browns/21.jpg','Combi-Browns/21..jpg','Combi-Browns/518345568_10165563609278146_7660537827251825260_n.jpg'
         ];
 
         const grid = document.querySelector('.before-after-grid');
@@ -410,31 +410,31 @@
           pairDiv.innerHTML = `
             <div class="before-after-images">
               <div class="image-cell">
-                <img src="${encodeURI(before)}" alt="Combi brows result ${i+1} - before">
+                <img src="${encodeURI(before)}" alt="Combi-brows result ${i+1} - before">
               </div>
               <div class="image-cell">
-                <img src="${encodeURI(after)}" alt="Combi brows result ${i+1} - after">
+                <img src="${encodeURI(after)}" alt="Combi-brows result ${i+1} - after">
               </div>
             </div>`;
           grid.appendChild(pairDiv);
         });
   
         const additionalCombiPhotos = [
-          'Combi Browns/33.jpg',
-          'Combi Browns/44.jpg',
-          'Combi Browns/55.jpg',
-          'Combi Browns/66.jpg',
-          'Combi Browns/77.jpg',
-          'Combi Browns/99.jpg',
-          'Combi Browns/100.jpg',
-          'Combi Browns/110.jpg',
-          'Combi Browns/120.jpg',
-          'Combi Browns/130.jpg',
-          'Combi Browns/140.jpg',
-          'Combi Browns/150.jpg',
-          'Combi Browns/160.jpg',
-          'Combi Browns/170.jpg',
-          'Combi Browns/180.jpg'
+          'Combi-Browns/33.jpg',
+          'Combi-Browns/44.jpg',
+          'Combi-Browns/55.jpg',
+          'Combi-Browns/66.jpg',
+          'Combi-Browns/77.jpg',
+          'Combi-Browns/99.jpg',
+          'Combi-Browns/100.jpg',
+          'Combi-Browns/110.jpg',
+          'Combi-Browns/120.jpg',
+          'Combi-Browns/130.jpg',
+          'Combi-Browns/140.jpg',
+          'Combi-Browns/150.jpg',
+          'Combi-Browns/160.jpg',
+          'Combi-Browns/170.jpg',
+          'Combi-Browns/180.jpg'
         ];
 
         const extraRow = document.createElement('div');
@@ -443,7 +443,7 @@
         additionalCombiPhotos.forEach((src) => {
           const item = document.createElement('div');
           item.className = 'extra-combi-photo';
-          item.innerHTML = `<img src="${encodeURI(src)}" alt="Combi brows photo">`;
+          item.innerHTML = `<img src="${encodeURI(src)}" alt="Combi-brows photo">`;
           extraRow.appendChild(item);
         });
 
