@@ -951,7 +951,7 @@ em {
 .promo-notice-track {
   display: flex;
   width: max-content;
-  animation: promoNoticeLoop 28s linear infinite normal;
+  animation: promoNoticeLoop 40s linear infinite normal;
   will-change: transform;
 }
 

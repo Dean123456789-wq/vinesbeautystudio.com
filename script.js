@@ -153,6 +153,8 @@ const scrollToServiceDetailsPanel = () => {
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const userName = document.getElementById('user_name').value.trim();
     const userEmail = document.getElementById('user_email').value.trim();
     const service = document.getElementById('service').value.trim();
@@ -235,9 +237,6 @@ if (contactForm) {
 
         nextEl.value = new URL('thank-you.html', window.location.href).href;
 
-        // Prevent default navigation; attempt AJAX submit so the thank-you page stays in the same tab.
-        e.preventDefault();
-
         try {
           const ajaxData = new FormData(contactForm);
           // Ensure reply-to/subject are present
@@ -256,21 +255,19 @@ if (contactForm) {
 
           if (ajaxResp.ok) {
             // Stay in the same tab and show the local thank-you page
-            window.location.replace('thank-you.html');
+            window.location.assign(new URL('thank-you.html', window.location.href).href);
             return;
           }
 
           // Non-OK: fall back to regular form submit so Formspree can handle the response
-          contactForm.submit();
+          HTMLFormElement.prototype.submit.call(contactForm);
           return;
         } catch (ajaxError) {
           console.warn('Formspree AJAX failed, falling back to standard submit:', ajaxError);
-          contactForm.submit();
+          HTMLFormElement.prototype.submit.call(contactForm);
           return;
         }
       }
-
-      e.preventDefault();
 
       // Create FormData to send to backend
       const formData = new FormData();
@@ -318,7 +315,7 @@ if (contactForm) {
 
       if (response.ok) {
         contactForm.reset();
-        window.location.href = 'thank-you.html';
+        window.location.assign(new URL('thank-you.html', window.location.href).href);
       } else {
         let message = result.message || 'Error sending request. Please try again.';
         if (response.status === 501 || /Unsupported method \('POST'\)/i.test(message)) {
