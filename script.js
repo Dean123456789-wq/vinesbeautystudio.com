@@ -438,10 +438,12 @@ const serviceDetails = {
   'LIP PIGMENTATION': {
     subtitle: 'A soft, customized lip tint that enhances your natural color and creates a fresh, polished look.',
     features: [
+      'Complete Session 4999',
       'Customized pigment shade selected for your natural lip tone',
       'Defines the lip shape while creating an even, balanced color',
       'A soft tint that enhances your everyday look without heavy makeup',
-      'Personalized aftercare guidance for smooth, beautiful healing'
+      'Personalized aftercare guidance for smooth, beautiful healing',
+      'Moisturize your lips using lip balm or Vaseline 1 day before your scheduled appointment'
     ]
   }
 };
