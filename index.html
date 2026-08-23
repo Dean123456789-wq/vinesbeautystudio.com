@@ -20,7 +20,7 @@
   <header class="header" id="top">
     <nav class="nav container">
       <a href="#top" class="logo" id="site-logo">
-       
+        <img src="logo/vines beauty.png" alt="Vine's Beauty logo" class="logo-img" onerror="this.onerror=null; this.src='logo/vines-logo-fallback.svg';">
         <span>Vine's Beauty Artistry & Care</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
@@ -120,8 +120,33 @@
           <h2>Our services</h2>
           <p class="section-desc">Every treatment is customized to enhance your natural beauty.</p>
         </div>
+        <div class="promo-notice" role="note" aria-label="Promo package policy">
+          <div class="promo-notice-track">
+            <div class="promo-notice-group">
+              <span>Please be reminded that Canceled booking or reschedule is not included in the promo package</span>
+              <span class="promo-notice-divider" aria-hidden="true">•</span>
+            </div>
+            <div class="promo-notice-group" aria-hidden="true">
+              <span>Please be reminded that Canceled booking or reschedule is not included in the promo package</span>
+              <span class="promo-notice-divider" aria-hidden="true">•</span>
+            </div>
+            <div class="promo-notice-group" aria-hidden="true">
+              <span>Please be reminded that Canceled booking or reschedule is not included in the promo package</span>
+              <span class="promo-notice-divider" aria-hidden="true">•</span>
+            </div>
+            <div class="promo-notice-group" aria-hidden="true">
+              <span>Please be reminded that Canceled booking or reschedule is not included in the promo package</span>
+              <span class="promo-notice-divider" aria-hidden="true">•</span>
+            </div>
+            <div class="promo-notice-group" aria-hidden="true">
+              <span>Please be reminded that Canceled booking or reschedule is not included in the promo package</span>
+              <span class="promo-notice-divider" aria-hidden="true">•</span>
+            </div>
+          </div>
+        </div>
         <div class="service-grid">
-          <article class="service-card training-card combi-card featured tilt-surface" data-service="COMBI BROWS" role="button" tabindex="0" aria-label="Show combi brows service features">
+          <div class="service-group-label">Available services</div>
+          <article class="service-card available training-card combi-card featured tilt-surface" data-service="COMBI BROWS" role="button" tabindex="0" aria-label="Show combi brows service features">
             <div class="combi-image-wrapper" aria-hidden="true">
               <img src="combi2.png" alt="Combi brows" />
             </div>
@@ -137,7 +162,6 @@
           <article class="service-card image-card unavailable tilt-surface" data-service="MICROBLADING" role="button" tabindex="0" aria-disabled="true" aria-label="Microblading currently unavailable">
             <div class="service-overlay"></div>
             <div class="image-card-content">
-              <div class="service-badge unavailable-badge">Service is Paused</div>
               <div class="service-icon">✦</div>
               <h3>MICROBLADING</h3>
               <p>A semi-permanent cosmetic tattoo technique that uses a tiny hand tool with micro-needles .</p>
@@ -147,7 +171,6 @@
           <article class="service-card image-card unavailable tilt-surface" data-service="POWDER BROWS" role="button" tabindex="0" aria-disabled="true" aria-label="Powder brows currently unavailable">
             <div class="service-overlay"></div>
             <div class="image-card-content">
-              <div class="service-badge unavailable-badge">Service is Paused</div>
               <div class="service-icon">✦</div>
               <h3>POWDER BROWS</h3>
               <p>A semi-permanent cosmetic tattoo technique creating a soft and shaded, makeup-like brow They last 1 to 3 years.</p>
@@ -157,7 +180,6 @@
           <article class="service-card image-card unavailable tilt-surface" data-service="MACHINE NANO HAIRSTROKES" role="button" tabindex="0" aria-disabled="true" aria-label="Machine nano hairstrokes currently unavailable">
             <div class="service-overlay"></div>
             <div class="image-card-content">
-              <div class="service-badge unavailable-badge">Service is Paused</div>
               <div class="service-icon">✦</div>
               <h3>MACHINE NANO HAIRSTROKES</h3>
               <p>It uses a digital PMU machine and an ultra-fine single needle .</p>
@@ -167,30 +189,28 @@
           <article class="service-card image-card ombre-card unavailable tilt-surface" data-service="OMBRE BROWS" role="button" tabindex="0" aria-disabled="true" aria-label="Ombre brows currently unavailable">
             <div class="service-overlay"></div>
             <div class="image-card-content">
-              <div class="service-badge unavailable-badge">Service is Paused</div>
               <div class="service-icon">✦</div>
               <h3>OMBRE BROWS</h3>
               <p>A semi-permanent cosmetic tattoo technique creating a soft powder gradient, starting light at the front and darkening toward the tail.</p>
               <span class="price">₱1499 only</span>
             </div>
           </article>
-          <article class="service-card training-card training-link tilt-surface" data-training-card="brow-tattooing" role="button" tabindex="0" aria-label="Learn more about Brow Tattooing Training" style="background-image: url('studio1.png');">
+          <article class="service-card available training-card training-link tilt-surface" data-training-card="brow-tattooing" role="button" tabindex="0" aria-label="Learn more about Brow Tattooing Training" style="background-image: url('studio1.png');">
             <div class="training-overlay"></div>
             <div class="training-content">
-              <div class="service-icon">✦</div>
               <h3 class="training-title"><span class="title-main">Brow tattooing</span><span class="title-sub">Training</span></h3>
              
               <span class="price training-price">₱9999 for 5D Training</span>
             </div>
           </article>
-          <article class="service-card image-card home-service-card tilt-surface" data-service="HOME SERVICE" role="button" tabindex="0" aria-label="Show home service features" style="background-image: url('home12.png');">
+          <article class="service-card available image-card home-service-card tilt-surface" data-service="HOME SERVICE" role="button" tabindex="0" aria-label="Show home service features" style="background-image: url('home12.png');">
             <div class="service-overlay"></div>
             <div class="image-card-content">
               <h3>Home Service</h3>
               <span class="price">₱2500 only</span>
             </div>
           </article>
-          <article class="service-card image-card combo-package-card tilt-surface" data-service="COMBO PACKAGE" role="button" tabindex="0" aria-label="Show combo package service features" style="background-image: url('combo3.png'); background-position: center 28%;">
+          <article class="service-card available image-card combo-package-card tilt-surface" data-service="COMBO PACKAGE" role="button" tabindex="0" aria-label="Show combo package service features" style="background-image: url('combo3.png'); background-position: center 28%;">
             <div class="service-overlay"></div>
             <div class="image-card-content">
               <h3>Combo package</h3>
@@ -198,6 +218,15 @@
               <span class="price">₱1999 only</span>
             </div>
           </article>
+          <article class="service-card available image-card lip-card tilt-surface" data-service="LIP PIGMENTATION" role="button" tabindex="0" aria-label="Show lip pigmentation service features" style="background-image: url('lip.png'); background-position: center 44%;">
+            <div class="service-overlay"></div>
+            <div class="image-card-content">
+              <div class="service-icon">✦</div>
+              <h3>LIP PIGMENTATION</h3>
+              <span class="price">₱1499 only</span>
+            </div>
+          </article>
+          <div class="service-group-label paused-service-label">Paused services</div>
         </div>
         <div class="service-details-panel" id="service-details-panel" aria-live="polite">
           <div class="service-details-header">
@@ -253,6 +282,7 @@
             <li>Brow Reconstruction</li>
             <li>Certified and Trained Technician</li>
             <li>Color correction</li>
+            <li>Lip Pigmentation</li>
             <li>Experienced brow artist</li>
             <li>Free Consultation</li>
             <li>Personalized consultation every visit</li>
@@ -328,6 +358,7 @@
               <option>POWDER BROWS</option>
               <option>HOME SERVICE</option>
               <option>COMBO PACKAGE</option>
+              <option>LIP PIGMENTATION</option>
               <option>Not sure yet</option>
             </select>
           </label>
