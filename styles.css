@@ -951,7 +951,8 @@ em {
 .promo-notice-track {
   display: flex;
   width: max-content;
-  animation: promoNoticeLoop 40s linear infinite normal;
+  min-width: fit-content;
+  animation: promoNoticeLoop 40s linear infinite;
   will-change: transform;
 }
 
@@ -982,22 +983,18 @@ em {
   to { transform: translate3d(-50%, 0, 0); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .promo-notice-track {
-    animation: none;
-    width: 100%;
-  }
-
-  .promo-notice-track .promo-notice-group[aria-hidden="true"] {
-    display: none;
-  }
-
+@media (max-width: 600px) {
   .promo-notice-group {
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
+    gap: 20px;
+    padding-inline: 18px;
+  }
+
+  .promo-notice-group span {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
   }
 }
+
 
 /* Ensure all service cards share a consistent baseline height and layout */
 .service-card {
