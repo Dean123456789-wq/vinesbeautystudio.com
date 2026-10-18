@@ -122,6 +122,21 @@ const scrollToContactForm = () => {
   }, 1600);
 };
 
+const smoothScrollToHash = (hash) => {
+  const targetId = hash.startsWith('#') ? hash : `#${hash}`;
+  const target = document.querySelector(targetId);
+  if (!target) return;
+
+  const offset = 90;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+  });
+
+  window.history.replaceState(null, '', targetId);
+};
+
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     const open = !navToggle.classList.contains('open');
@@ -131,11 +146,41 @@ if (navToggle && navLinks) {
   });
 
   navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || !targetId.startsWith('#')) {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        return;
+      }
+
+      event.preventDefault();
+      smoothScrollToHash(targetId);
+
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+
+const hashLinks = document.querySelectorAll('a[href^="#"]');
+hashLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+
+    event.preventDefault();
+    smoothScrollToHash(targetId);
+  });
+});
+
+if (window.location.hash) {
+  window.addEventListener('load', () => {
+    window.setTimeout(() => {
+      smoothScrollToHash(window.location.hash);
+    }, 60);
   });
 }
 

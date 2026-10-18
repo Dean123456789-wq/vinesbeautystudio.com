@@ -34,6 +34,11 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id],
+[id] {
+  scroll-margin-top: 110px;
+}
+
 body {
   font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 400;
@@ -157,17 +162,26 @@ em {
 }
  
 .hero .eyebrow {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
   color: rgba(245, 249, 242, 0.96);
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.28);
   letter-spacing: 0.16em;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.6s ease 0.14s, transform 0.6s ease 0.14s;
+  opacity: 1;
+  transform: none;
+  margin-bottom: 14px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
  
 .hero.animate .eyebrow {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+.hero .eyebrow::before,
+.hero .eyebrow::after {
+  z-index: 1;
 }
 
 .eyebrow::before {
@@ -612,7 +626,7 @@ em {
 /* ensure hero content sits above the background layers */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 @media (max-width: 900px) {
